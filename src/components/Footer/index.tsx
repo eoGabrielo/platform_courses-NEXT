@@ -2,11 +2,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
-<<<<<<< HEAD
-    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-8">
-=======
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-24">
->>>>>>> be62d91 (pagCursos Soft/Tec)
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Logo e nome */}
         <div className="flex items-center gap-3">
