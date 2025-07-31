@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+
 import "./globals.css";
 import Header from "@/components/Header";
-import Container from "@/components/Container";
+
 import Footer from "@/components/Footer";
 import FotoLinks from "../../public/previ.png"
 
@@ -11,7 +11,7 @@ export const metadata = {
   openGraph: {
     title: 'Minha Página | Rocken Sistemas',
     description: 'Aprenda como cadastrar moradores, veículos e configurar facial.',
-    url: 'https://seusite.com/minha-pagina',
+    url: {FotoLinks},
     siteName: 'Rocken Sistemas',
     images: [
       {
@@ -24,12 +24,7 @@ export const metadata = {
     locale: 'pt_BR',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Minha Página | Rocken Sistemas',
-    description: 'Aprenda como cadastrar moradores, veículos e configurar facial.',
-    images: ['https://seusite.com/imagens/thumb.jpg'],
-  },
+
 };
 
 
