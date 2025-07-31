@@ -1,9 +1,8 @@
 
 import "./globals.css";
 import Header from "@/components/Header";
-
 import Footer from "@/components/Footer";
-import FotoLinks from "../../public/previ.png"
+
 
 export const metadata = {
   title: 'Minha Página | Rocken Sistemas',
@@ -11,11 +10,11 @@ export const metadata = {
   openGraph: {
     title: 'Minha Página | Rocken Sistemas',
     description: 'Aprenda como cadastrar moradores, veículos e configurar facial.',
-    url: {FotoLinks},
+    url: 'https://rocken-sistemas.vercel.app/', // substitua pelo seu domínio real
     siteName: 'Rocken Sistemas',
     images: [
       {
-        url: {FotoLinks}, // imagem pública
+        url: '/previ.png',  // caminho relativo para a imagem na pasta /public
         width: 1200,
         height: 630,
         alt: 'Imagem de exemplo do guia Rocken',
@@ -24,7 +23,6 @@ export const metadata = {
     locale: 'pt_BR',
     type: 'website',
   },
-
 };
 
 
@@ -34,7 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en"
+    >
       <body>
         <Header />
           {children}
