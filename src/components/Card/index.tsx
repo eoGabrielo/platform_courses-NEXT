@@ -1,37 +1,52 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import cursoImg from "../../../public/curso.jpg";
 
 interface CardProps {
   titulo: string;
   descricao: string;
   link: string;
+  imgHref: StaticImageData;
 }
 
-export default function Card({ titulo, descricao, link }: CardProps) {
+export default function Card({ titulo, descricao, link, imgHref }: CardProps) {
   return (
-    <div className="w-full sm:w-72 bg-gray-700 rounded p-4 shadow hover:shadow-lg transition flex flex-col items-center">
-      <h3 className="text-xl font-bold mb-3 text-white text-center">
-        {titulo}
-      </h3>
-      <Link href={link}>
-        <Image
-          src={cursoImg}
-          alt="Imagem do curso"
-          width={300}
-          height={120}
-          className="rounded mb-3 object-cover cursor-pointer"
-        />
-      </Link>
+    <div className="w-full sm:w-80 bg-white dark:bg-gray-800 rounded-2xl shadow-md ring-1 ring-gray-400/40 overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg duration-300 flex flex-col">
+      
+      {/* Imagem */}
+      <div className="relative w-full h-44">
+        <Link href={link}>
+          <Image
+            src={imgHref}
+            alt={titulo}
+            fill
+            className="object-cover"
+          />
+        </Link>
+      </div>
 
-      <p className="text-sm text-gray-300 text-center mb-4">{descricao}</p>
+      {/* Conteúdo */}
+      <div className="p-4 flex flex-col flex-grow">
+        {/* Título */}
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 line-clamp-2">
+          {titulo}
+        </h3>
 
-      <Link
-        href={link}
-        className="text-[#fff] hover:text-[#ccc] font-semibold transition-colors"
-      >
-        Ver mais
-      </Link>
+        {/* Descrição */}
+        <p
+          className="text-sm text-gray-600 dark:text-gray-300 mb-4 flex-grow overflow-hidden"
+          style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }} 
+        >
+          {descricao}
+        </p>
+
+        {/* Link */}
+        <Link
+          href={link}
+          className="text-indigo-600 dark:text-indigo-400 font-medium hover:underline mt-auto"
+        >
+          Ver mais →
+        </Link>
+      </div>
     </div>
   );
 }

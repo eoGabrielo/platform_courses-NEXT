@@ -2,6 +2,7 @@ import Image from 'next/image';
 import bgImage from '../../public/fundo.jpg'; // Substitua por sua imagem real
 import Card from '@/components/Card';
 import Container from '@/components/Container';
+import engrenagemImg from '../../public/engrenagem.png'; // Imagem de engrenagem para o card
 // Você pode usar uma imagem local ou externa
 
 export default function Home() {
@@ -35,9 +36,8 @@ export default function Home() {
           <h1 className="text-4xl font-bold mb-4">Veja oque vc pode encontrar: </h1>
           <br />
           <div className='flex flex-wrap justify-center gap-4'>
-            <Card link='/' titulo='Cursos rocken' descricao='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '/>
-            <Card link='/' titulo='Cursos rocken' descricao='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '/>
-            <Card link='/' titulo='Cursos rocken' descricao='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '/>
+            <Card imgHref={engrenagemImg} link='/' titulo='Configurações' descricao='Este site foi criado para ajudar os usuários e técnicos da empresa a tirarem o máximo proveito do sistema. Aqui você encontra dicas práticas, orientações claras e tutoriais passo a passo que facilitam o uso do software e configuração dos equipamentos, garantindo que o sistema seja utilizado de forma simples, eficiente e sem complicações.'/>
+            <Card imgHref={engrenagemImg} link='/' titulo='Configurações' descricao='Este site foi criado para ajudar os usuários e técnicos da empresa a tirarem o máximo proveito do sistema. Aqui você encontra dicas práticas, orientações claras e tutoriais passo a passo que facilitam o uso do software e configuração dos equipamentos, garantindo que o sistema seja utilizado de forma simples, eficiente e sem complicações.'/>
           </div>
         </Container>
         <br />
