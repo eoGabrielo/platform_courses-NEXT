@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import bgImage from '../../public/fundo.jpg'; // Substitua por sua imagem real
+import bgImage from '../../public/fundo.jpg';
 import Card from '@/components/Card';
 import Container from '@/components/Container';
-import engrenagemImg from '../../public/engrenagem.png'; // Imagem de engrenagem para o card
-// Você pode usar uma imagem local ou externa
+import engrenagemImg from '../../public/engrenagem.png';
+import curso from '../../public/curso.jpg';
+
 
 export default function Home() {
   return (
@@ -36,8 +37,8 @@ export default function Home() {
           <h1 className="text-4xl font-bold mb-4">Veja oque vc pode encontrar: </h1>
           <br />
           <div className='flex flex-wrap justify-center gap-4'>
-            <Card imgHref={engrenagemImg} link='/' titulo='Configurações' descricao='Este site foi criado para ajudar os usuários e técnicos da empresa a tirarem o máximo proveito do sistema. Aqui você encontra dicas práticas, orientações claras e tutoriais passo a passo que facilitam o uso do software e configuração dos equipamentos, garantindo que o sistema seja utilizado de forma simples, eficiente e sem complicações.'/>
-            <Card imgHref={engrenagemImg} link='/' titulo='Configurações' descricao='Este site foi criado para ajudar os usuários e técnicos da empresa a tirarem o máximo proveito do sistema. Aqui você encontra dicas práticas, orientações claras e tutoriais passo a passo que facilitam o uso do software e configuração dos equipamentos, garantindo que o sistema seja utilizado de forma simples, eficiente e sem complicações.'/>
+            <Card imgHref={engrenagemImg} link='/' titulo='Configurações' descricao='Dicas, orientações claras e tutoriais passo a passo que facilitam o uso do software e configuração dos equipamentos, garantindo que o sistema seja utilizado de forma simples, eficiente e sem complicações.'/>
+            <Card imgHref={curso} link='/' titulo='Software' descricao='Este site foi criado para ajudar os usuários e técnicos da empresa a tirarem o máximo proveito do sistema.'/>
           </div>
         </Container>
         <br />
