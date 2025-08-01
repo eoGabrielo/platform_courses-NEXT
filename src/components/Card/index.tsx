@@ -12,7 +12,8 @@ export default function Card({ titulo, descricao, link, imgHref }: CardProps) {
   return (
     <div className="w-full sm:w-80 bg-white dark:bg-gray-800 rounded-2xl shadow-md ring-1 ring-gray-400/40 overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg duration-300 flex flex-col">
       
-      {/* Imagem */}
+      {/* Imagem 
+      
       <div className="relative w-full h-44">
         <Link href={link}>
           <Image
@@ -23,6 +24,9 @@ export default function Card({ titulo, descricao, link, imgHref }: CardProps) {
           />
         </Link>
       </div>
+      
+      */}
+      
 
       {/* Conteúdo */}
       <div className="p-4 flex flex-col flex-grow">
