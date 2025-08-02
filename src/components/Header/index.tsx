@@ -10,14 +10,9 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    /*APENAS TESTES*/
-    if (login === false) {
-      router.push("/");
-    } else {
-      alert("Bem-vindo(a) ao sistema Rocken Sistemas!");
-    }
-  }, [login]);
+
+
+
 
   return (
     <header className="w-full bg-gray-800 text-white shadow-lg">
@@ -57,6 +52,13 @@ export default function Header() {
         >
           <Link
             className="py-1 px-2 hover:text-[#ccc] transition-colors duration-300 font-medium"
+            href="/cadastro"
+            onClick={() => setMenuOpen(false)}
+          >
+            Cadastro
+          </Link>
+          <Link
+            className="py-1 px-2 hover:text-[#ccc] transition-colors duration-300 font-medium"
             href="/sobre"
             onClick={() => setMenuOpen(false)}
           >
@@ -78,37 +80,19 @@ export default function Header() {
               Cursos
             </Link>
           )}
-          {login ? (
-            <button
-              onClick={() => {
-                setLogin(!login);
-                setMenuOpen(false);
-              }}
-              className="py-1 px-3 rounded hover:bg-gray-700 transition-colors duration-300"
-            >
-              <span className="cursor-pointer">Sair</span>
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                setLogin(!login);
-                setMenuOpen(false);
-              }}
-            >
-              <Link
-                className="py-1 px-3 hover:text-[#ccc] transition-colors duration-300 font-medium animate-pulse"
-                href="/"
-              >
-                Entrar
-              </Link>
-            </button>
-          )}
+
+          <Link
+            className="py-1 px-3 hover:text-[#ccc] transition-colors duration-300 font-medium animate-pulse"
+            href="/entrar"
+          >
+            Entrar
+          </Link>
         </nav>
 
         {/* Foto/Avatar */}
         <div className="hidden sm:flex ml-6 items-center">
-          <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-700 text-gray-300 font-bold text-sm border-2 border-gray-600">
-            FOTO
+          <span className="text-gray-300 mr-2">
+            {login ? "Olá, Usuário!" : ""}
           </span>
         </div>
       </div>

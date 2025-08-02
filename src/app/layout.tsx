@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 
+
 export const metadata = {
   title: 'Minha Página | Rocken Sistemas',
   description: 'Aprenda como cadastrar moradores, veículos e configurar facial.',
@@ -34,9 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en"
     >
-      <body>
+      <body
+      >
         <Header />
-          {children}
+        {children}
         <Footer />
       </body>
     </html>
