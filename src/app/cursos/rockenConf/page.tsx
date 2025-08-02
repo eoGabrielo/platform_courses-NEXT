@@ -14,7 +14,7 @@ export default function RockenConfig() {
     router.push('/cursos/software')
   }else{
     if (currentUser?.tipo !== "tecnico") {
-    router.push('/cursos');
+    router.push('/');
     return;
   }
   }
