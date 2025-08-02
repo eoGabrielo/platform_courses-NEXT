@@ -3,12 +3,15 @@ import { useState } from 'react';
 import { db } from "@/api/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useAuth } from "@/context/AuthContext";
+import { useRouter } from 'next/navigation';
+
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
     const { login } = useAuth();
+    const router = useRouter();
 
 
     async function handleLogin(e: any) {
@@ -50,7 +53,7 @@ export default function Login() {
             // Se chegou aqui, login ok
             alert("Login realizado com sucesso!");
             // Aqui pode redirecionar ou atualizar estado de autenticação
-
+            router.push('/');
             setEmail('');
             setSenha('');
 

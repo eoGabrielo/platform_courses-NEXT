@@ -32,6 +32,13 @@ export default function Header() {
           </Link>
         </div>
 
+        {/* Foto/Avatar */}
+        <div className=" sm:flex ml-6 items-center">
+          <span className="text-gray-300">
+            {currentUser && <p>Olá, {currentUser.user}!</p>}
+          </span>
+        </div>
+
         {/* Botão menu mobile */}
         <button
           className="sm:hidden ml-auto flex items-center px-3 py-2 border rounded text-gray-300 border-gray-600 hover:text-white hover:border-white"
@@ -101,12 +108,6 @@ export default function Header() {
 
         </nav>
 
-        {/* Foto/Avatar */}
-        <div className="hidden sm:flex ml-6 items-center">
-          <span className="text-gray-300 mr-2">
-            {currentUser && <p>Olá, {currentUser.user}!</p>}
-          </span>
-        </div>
       </div>
     </header>
   );
