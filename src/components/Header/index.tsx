@@ -5,12 +5,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
-  const [login, setLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const { currentUser, logout } = useAuth();
+  const pathname = usePathname();
 
 
 
@@ -66,35 +67,44 @@ export default function Header() {
           >
             Sobre
           </Link>
-          {login ? (
-            <Link
-              href="/cursos"
-              className="py-1 px-3 bg-[#133c4a] text-white rounded hover:bg-[#6b7679] transition-colors duration-300 font-bold shadow"
-              onClick={() => setMenuOpen(false)}
-            >
-              Cursos
-            </Link>
-          ) : (
-            <Link
-              className="py-1 px-3 text-gray-700 pointer-events-none cursor-not-allowed rounded bg-gray-200/30"
-              href="/cursos"
-            >
-              Cursos
-            </Link>
-          )}
 
-          <Link
-            className="py-1 px-3 hover:text-[#ccc] transition-colors duration-300 font-medium animate-pulse"
-            href="/entrar"
+          {currentUser && <Link
+            href="/cursos"
+            className="py-1 px-3 bg-[#133c4a] text-white rounded hover:bg-[#6b7679] transition-colors duration-300 font-bold shadow"
+            onClick={() => setMenuOpen(false)}
           >
-            Entrar
-          </Link>
+            Cursos
+          </Link>}
+          {!currentUser && <Link
+            className="py-1 px-3 text-gray-700 pointer-events-none cursor-not-allowed rounded bg-gray-200/30"
+            href="/cursos"
+          >
+            Cursos
+          </Link>}
+
+         {!currentUser && (
+                <Link
+                  className="py-1 px-3 hover:text-[#ccc] transition-colors duration-300 font-medium animate-pulse"
+                  href="/entrar"
+                >
+                  Entrar
+                </Link>)}
+             
+          {currentUser && (
+                <button
+                  className="cursor-pointer py-1 px-3 hover:text-[#133c4a] transition-colors duration-300 font-medium animate-pulse"
+                  onClick={logout}
+                >
+                  Sair
+                </button>)}
+          
+
         </nav>
 
         {/* Foto/Avatar */}
         <div className="hidden sm:flex ml-6 items-center">
           <span className="text-gray-300 mr-2">
-          {currentUser && <p>Olá, {currentUser.user}!</p>}
+            {currentUser && <p>Olá, {currentUser.user}!</p>}
           </span>
         </div>
       </div>
