@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { db } from "@/api/firebase"
+import { useRouter } from 'next/navigation';
 
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 
@@ -19,13 +20,15 @@ export default function Cadastro() {
     const [senha, setSenha] = useState('');
     const [tipo, setTipo] = useState('');
 
+    const router = useRouter();
+
 
 
     async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
 
         if (!user || !email || !senha || !tipo || tipo === "") {
-            alert('Todos os dados precisa ser preenchidos')
+            console.log('Todos os dados precisa ser preenchidos')
             return;
         }
 
@@ -42,22 +45,24 @@ export default function Cadastro() {
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
             // Se encontrar algum documento, email já existe
-            alert("Esse email já está cadastrado!");
+            console.log("Esse email já está cadastrado!");
             return;
         }
 
         try {
             await addDoc(collection(db, "usuarios"), dataUser);
-            alert('Dados enviados com sucesso! ')
+            console.log('Dados enviados com sucesso! ')
 
             setUser('');
             setEmail('');
             setSenha('');
             setTipo('');
+
+            router.push('/entrar')
             
         } catch (err) {
             console.error("ERRO: " + err)
-            alert('Erro ao cadastrar usuário. Tente novamente.');
+            console.log('Erro ao cadastrar usuário. Tente novamente.');
         }
 
     };

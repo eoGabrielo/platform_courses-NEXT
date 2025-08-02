@@ -18,7 +18,7 @@ export default function Login() {
         e.preventDefault();
 
         if (!email || !senha) {
-            alert('Preencha todos os campos');
+            console.log('Preencha todos os campos');
             return;
         }
 
@@ -36,7 +36,7 @@ export default function Login() {
             const querySnapshot = await getDocs(q);
 
             if (querySnapshot.empty) {
-                alert("Usuário não encontrado ou dados incorretos.");
+                console.log("Usuário não encontrado ou dados incorretos.");
                 return;
             }
 
@@ -51,16 +51,16 @@ export default function Login() {
             });
 
             // Se chegou aqui, login ok
-            alert("Login realizado com sucesso!");
+            console.log("Login realizado com sucesso!");
             // Aqui pode redirecionar ou atualizar estado de autenticação
-            router.push('/');
+            router.push('/cursos');
             setEmail('');
             setSenha('');
 
 
         } catch (error) {
             console.error("Erro no login:", error);
-            alert("Erro ao tentar logar. Tente novamente.");
+            console.log("Erro ao tentar logar. Tente novamente.");
         }
     }
 
