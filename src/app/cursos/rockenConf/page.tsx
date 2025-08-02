@@ -4,7 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from 'next/navigation';
 
 
-export default function rockenConfig() {
+export default function RockenConfig() {
 
   const { currentUser, logout } = useAuth();
     const router = useRouter();
