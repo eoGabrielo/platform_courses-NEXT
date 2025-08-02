@@ -2,10 +2,13 @@
 import { useState } from 'react';
 import { db } from "@/api/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+
+    const { login } = useAuth();
 
 
     async function handleLogin(e: any) {
@@ -29,12 +32,20 @@ export default function Login() {
 
             const querySnapshot = await getDocs(q);
 
-            console.log(querySnapshot.empty)
-
             if (querySnapshot.empty) {
                 alert("Usuário não encontrado ou dados incorretos.");
                 return;
             }
+
+            const userDoc = querySnapshot.docs[0];
+            const userData = userDoc.data();
+            console.log(userData)
+
+            login({
+                email: userData.email,
+                tipo: userData.tipo,
+                user: userData.user,
+            });
 
             // Se chegou aqui, login ok
             alert("Login realizado com sucesso!");
@@ -42,7 +53,7 @@ export default function Login() {
 
             setEmail('');
             setSenha('');
-            
+
 
         } catch (error) {
             console.error("Erro no login:", error);

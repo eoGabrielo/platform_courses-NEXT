@@ -4,11 +4,13 @@ import LogoRocken from "../../../public/LogoRocken.png";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Header() {
   const [login, setLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const router = useRouter();
+
+  const { currentUser, logout } = useAuth();
 
 
 
@@ -92,7 +94,7 @@ export default function Header() {
         {/* Foto/Avatar */}
         <div className="hidden sm:flex ml-6 items-center">
           <span className="text-gray-300 mr-2">
-            {login ? "Olá, Usuário!" : ""}
+          {currentUser && <p>Olá, {currentUser.user}!</p>}
           </span>
         </div>
       </div>
