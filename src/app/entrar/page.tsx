@@ -14,7 +14,7 @@ export default function Login() {
     const router = useRouter();
 
 
-    async function handleLogin(e: any) {
+    async function handleLogin(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
 
         if (!email || !senha) {
