@@ -1,7 +1,20 @@
+'use client'
 import Container from "@/components/Container";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from 'next/navigation';
 
 export default function Cursos() {
+
+ const { currentUser, logout } = useAuth();
+ const router = useRouter();
+
+ if(!currentUser){
+  alert("Faça login para ter acesso a essa pagina!")
+  router.push('/')
+  return;
+ }
+
   return (
     <Container>
       <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">

@@ -1,7 +1,27 @@
+'use client'
 
 import Link from 'next/link';
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from 'next/navigation';
+
 
 export default function Software() {
+
+  const { currentUser, logout } = useAuth();
+  const router = useRouter();
+
+
+  if(currentUser?.tipo == "admin"){
+    router.push('/cursos/software')
+  }else{
+    if (currentUser?.tipo !== "condominio") {
+    router.push('/');
+    alert("Seu usuario não permite!")
+    return;
+  }
+  }
+
+
   return (
     <div className="flex justify-center min-h-screen w-full mx-auto p-6 bg-gray-800 text-white">
       <div className='max-w-5xl'>
