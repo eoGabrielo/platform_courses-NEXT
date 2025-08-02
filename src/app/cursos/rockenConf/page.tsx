@@ -15,7 +15,6 @@ export default function RockenConfig() {
   }else{
     if (currentUser?.tipo !== "tecnico") {
     router.push('/cursos');
-    alert("Seu usuario não permite!")
     return;
   }
   }

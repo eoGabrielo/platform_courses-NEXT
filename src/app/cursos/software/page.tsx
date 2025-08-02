@@ -16,7 +16,6 @@ export default function Software() {
   }else{
     if (currentUser?.tipo !== "condominio") {
     router.push('/');
-    alert("Seu usuario não permite!")
     return;
   }
   }

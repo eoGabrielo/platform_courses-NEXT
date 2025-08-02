@@ -10,7 +10,6 @@ export default function Cursos() {
  const router = useRouter();
 
  if(!currentUser){
-  alert("Faça login para ter acesso a essa pagina!")
   router.push('/')
   return;
  }
