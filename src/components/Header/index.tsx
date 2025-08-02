@@ -2,18 +2,13 @@
 import Image from "next/image";
 import LogoRocken from "../../../public/LogoRocken.png";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const { currentUser, logout } = useAuth();
-  const pathname = usePathname();
-
-
 
 
 

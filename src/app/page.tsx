@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import bgImage from '../../public/fundo.jpg';
 import Card from '@/components/Card';
 import Container from '@/components/Container';
 import engrenagemImg from '../../public/engrenagem.png';

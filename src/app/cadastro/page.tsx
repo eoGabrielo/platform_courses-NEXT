@@ -21,7 +21,7 @@ export default function Cadastro() {
 
 
 
-    async function handleSubmit(e: any) {
+    async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
 
         if (!user || !email || !senha || !tipo || tipo === "") {
