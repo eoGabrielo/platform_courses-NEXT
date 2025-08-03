@@ -24,7 +24,7 @@ export default function Cursos() {
           className="relative block rounded-2xl bg-gradient-to-r from-cyan-600 to-cyan-400 p-8 shadow-lg hover:scale-105 transition-transform min-h-[180px]"
         >
           <h2 className="text-2xl font-bold text-white mb-2">
-            Aulas do Software
+            Aulas do Software (Somente Usuários).
           </h2>
           <p className="text-white opacity-90">
             Aprenda a utilizar todas as funcionalidades do nosso sistema, desde o básico até recursos avançados para otimizar sua rotina.
@@ -35,7 +35,7 @@ export default function Cursos() {
           className="relative block rounded-2xl bg-gradient-to-r from-green-600 to-green-400 p-8 shadow-lg hover:scale-105 transition-transform min-h-[180px]"
         >
           <h2 className="text-2xl font-bold text-white mb-2">
-            Configurações para Técnicos
+            Configurações para Técnicos (Somente Técnicos).
           </h2>
           <p className="text-white opacity-90">
             Guia completo para técnicos: configurações, manutenção e dicas para garantir o melhor desempenho no serviço.
