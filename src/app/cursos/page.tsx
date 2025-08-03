@@ -16,13 +16,13 @@ export default function Cursos() {
 
   return (
     <Container>
-      <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-        Escolha qual video aula deseja assistir:
+      <h1 className="text-3xl mt-8 font-bold text-gray-800 mb-8 text-center">
+        Qual assunto é sua dúvida:
       </h1>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 mb-7 p-4">
         <Link
           href="/cursos/software"
-          className="relative block rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 p-8 shadow-lg hover:scale-105 transition-transform min-h-[180px]"
+          className="relative block rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 p-8 shadow-lg hover:scale-102 transition-transform min-h-[180px]"
         >
           <h2 className="text-2xl font-bold text-white mb-2">
             Aulas do Software
@@ -34,14 +34,14 @@ export default function Cursos() {
         </Link>
         <Link
           href="/cursos/rockenConf"
-          className="relative block rounded-xl bg-gradient-to-r from-green-600 to-green-400 p-8 shadow-lg hover:scale-105 transition-transform min-h-[180px]"
+          className="relative block rounded-xl bg-gradient-to-r from-green-600 to-green-400 p-8 shadow-lg hover:scale-102 transition-transform min-h-[180px]"
         >
           <h2 className="text-2xl font-bold text-white mb-2">
             Configurações para Técnicos
           </h2>
           <p className="text-white opacity-90">
             Guia completo para técnicos: configurações, manutenção e dicas para
-            garantir o melhor desempenho do sistema.
+            garantir o melhor desempenho no serviço.
           </p>
         </Link>
       </div>

@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 // Interface dos dados que o usuário logado terá
 interface AuthUser {
@@ -26,14 +26,24 @@ const AuthContext = createContext<AuthContextType>({
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(null);
 
-  // Função para logar e armazenar o usuário
+  //carrega os dados do localStorage (se existirem)
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  //salvando os dados no localStorage também
   const login = (userData: AuthUser) => {
-    setCurrentUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData)); //Armazena
+    setCurrentUser(userData); // atualiza o estado global
   };
 
-  // Função para deslogar
+  //limpa o localStorage e o estado
   const logout = () => {
-    setCurrentUser(null);
+    localStorage.removeItem("user"); //Limpa armazenamento
+    setCurrentUser(null); // limpa o estado
   };
 
   return (
