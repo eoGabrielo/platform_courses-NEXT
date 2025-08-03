@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link';
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from 'next/navigation';
+import CardCurso from '@/components/CardCurso';
 
 
 export default function Software() {
@@ -11,13 +11,13 @@ export default function Software() {
   const router = useRouter();
 
 
-  if(currentUser?.tipo == "admin"){
-    router.push('/cursos/software')
-  }else{
+  if (currentUser?.tipo == "admin") {
+    {/*Faça nada*/}
+  } else {
     if (currentUser?.tipo !== "condominio") {
-    router.push('/');
-    return;
-  }
+      router.push('/');
+      return;
+    }
   }
 
 
@@ -28,34 +28,23 @@ export default function Software() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Link 1 */}
-          <Link href="/cursos/cadastro-unidade" className="block bg-gray-900 hover:bg-gray-600 rounded p-4 text-lg font-semibold text-center transition">
-            Cadastro de Unidade
-          </Link>
+          <CardCurso assunto="Cadastro de Unidade" />
 
           {/* Link 2 */}
-          <Link href="/cursos/cadastro-morador" className="block bg-gray-900 hover:bg-gray-600 rounded p-4 text-lg font-semibold text-center transition">
-            Cadastro de Morador
-          </Link>
+          <CardCurso assunto="Cadastro de Morador" />
 
           {/* Link 3 */}
-          <Link href="/cursos/ativando-app" className="block bg-gray-900 hover:bg-gray-600 rounded p-4 text-lg font-semibold text-center transition">
-            Ativando Aplicativo
-          </Link>
+          <CardCurso assunto="Ativando Aplicativo" />
 
           {/* Link 4 */}
-          <Link href="/cursos/ativar-remover-facial" className="block bg-gray-900 hover:bg-gray-600 rounded p-4 text-lg font-semibold text-center transition">
-            Ativando e Removendo Facial
-          </Link>
+          <CardCurso assunto="Ativando e Removendo Facial" />
 
           {/* Link 5 */}
-          <Link href="/cursos/cadastro-veiculo" className="block bg-gray-900 hover:bg-gray-600 rounded p-4 text-lg font-semibold text-center transition">
-            Cadastro de Veículo
-          </Link>
+          <CardCurso assunto="Cadastro de Veículo" />
 
           {/* Link 6 */}
-          <Link href="/cursos/ativando-tag-veiculo" className="block bg-gray-900 hover:bg-gray-600 rounded p-4 text-lg font-semibold text-center transition">
-            Ativando Tag do Veículo
-          </Link>
+          <CardCurso assunto="Ativando Tag do Veículo" />
+
         </div>
       </div>
     </div>

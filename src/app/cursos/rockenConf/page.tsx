@@ -1,5 +1,5 @@
 'use client'
-import Link from 'next/link';
+import CardCurso from "@/components/CardCurso"
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from 'next/navigation';
 
@@ -7,16 +7,16 @@ import { useRouter } from 'next/navigation';
 export default function RockenConfig() {
 
   const { currentUser, logout } = useAuth();
-    const router = useRouter();
+  const router = useRouter();
 
 
-  if(currentUser?.tipo == "admin"){
-    router.push('/cursos/software')
-  }else{
+  if (currentUser?.tipo == "admin") {
+    {/*Faça nada*/}
+  } else {
     if (currentUser?.tipo !== "tecnico") {
-    router.push('/');
-    return;
-  }
+      router.push('/');
+      return;
+    }
   }
 
 
@@ -27,28 +27,14 @@ export default function RockenConfig() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Link 1 */}
-          <Link
-            href="/cursos/configuracao-facial-hikvision"
-            className="block bg-gray-800 hover:bg-gray-700 rounded p-4 text-lg font-semibold text-center transition"
-          >
-            Configuração do Facial Hikvision
-          </Link>
+          <CardCurso assunto="Configuração do Facial Hikvision" />
 
           {/* Link 2 */}
-          <Link
-            href="/cursos/configuracao-impressora-controlid"
-            className="block bg-gray-800 hover:bg-gray-700 rounded p-4 text-lg font-semibold text-center transition"
-          >
-            Configuração Impressora Control ID
-          </Link>
+          <CardCurso assunto="Configuração Impressora Control ID" />
 
           {/* Link 3 */}
-          <Link
-            href="/cursos/parametros-inversora"
-            className="block bg-gray-800 hover:bg-gray-700 rounded p-4 text-lg font-semibold text-center transition"
-          >
-            Parâmetros da Inversora
-          </Link>
+          <CardCurso assunto="Parâmetros da Inversora" />
+
         </div>
       </div>
     </div>

@@ -2,141 +2,121 @@ import Container from "@/components/Container";
 
 export default function Sobre() {
   return (
-    <Container>
-      <section className="py-12 px-4 max-w-4xl mx-auto">
+    <div className="bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900">
+      <section className="py-12 px-4 max-w-5xl mx-auto text-gray-100">
+        {/* Título e descrição */}
         <div className="mb-10 text-center">
-          <h1 className="text-4xl font-extrabold text-gray-800 mb-2">
+          <h1 className="text-4xl font-extrabold text-cyan-400 mb-3">
             Sobre a Rocken Sistemas
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Transformando ideias em soluções digitais inovadoras para
-            impulsionar o seu negócio.
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            Na Rocken Sistemas, a inovação é a essência de tudo o que fazemos. Há mais de 20 anos, estamos na vanguarda da tecnologia aplicada ao controle de acesso de pessoas, veículos e mercadorias, oferecendo soluções modernas e eficazes que promovem organização, conveniência e segurança para condomínios e empresas.
           </p>
         </div>
 
         {/* Missão, Visão e Valores */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">
+          <div className="bg-gray-800 rounded-xl shadow p-6 flex flex-col items-center">
             <span className="text-4xl mb-2">🎯</span>
-            <h2 className="font-bold text-xl text-gray-800 mb-1">Missão</h2>
-            <p className="text-gray-600 text-center">
-              Oferecer soluções tecnológicas de alta qualidade, promovendo
-              inovação, eficiência e crescimento sustentável para nossos
-              clientes.
+            <h2 className="font-bold text-xl text-cyan-300 mb-2">Missão</h2>
+            <p className="text-gray-200 text-center">
+              Desenvolver sistemas inovadores e personalizados que facilitem o dia a dia, promovam segurança e excelência para nossos clientes.
             </p>
           </div>
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">
+          <div className="bg-gray-800 rounded-xl shadow p-6 flex flex-col items-center">
             <span className="text-4xl mb-2">🚀</span>
-            <h2 className="font-bold text-xl text-gray-800 mb-1">Visão</h2>
-            <p className="text-gray-600 text-center">
-              Ser referência nacional em desenvolvimento de sistemas,
-              reconhecida pela excelência, criatividade e compromisso com
-              resultados.
+            <h2 className="font-bold text-xl text-cyan-300 mb-2">Visão</h2>
+            <p className="text-gray-200 text-center">
+              Ser referência nacional em inovação tecnológica para controle de acesso, reconhecida pela qualidade e compromisso com resultados.
             </p>
           </div>
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">
+          <div className="bg-gray-800 rounded-xl shadow p-6 flex flex-col items-center">
             <span className="text-4xl mb-2">💡</span>
-            <h2 className="font-bold text-xl text-gray-800 mb-1">Valores</h2>
-            <ul className="text-gray-600 text-left list-disc list-inside">
-              <li>Inovação e criatividade</li>
-              <li>Ética e transparência</li>
+            <h2 className="font-bold text-xl text-cyan-300 mb-2">Valores</h2>
+            <ul className="text-left list-disc list-inside text-gray-200 space-y-1">
+              <li>Inovação constante</li>
+              <li>Compromisso com a qualidade</li>
               <li>Foco no cliente</li>
-              <li>Trabalho em equipe</li>
-              <li>Compromisso com resultados</li>
+              <li>Ética e transparência</li>
+              <li>Suporte ágil e eficiente</li>
             </ul>
           </div>
         </div>
 
-        {/* Sobre a empresa */}
+        {/* Quem somos */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Quem somos
-          </h2>
-          <p className="text-gray-700 mb-4">
-            Fundada em 2022, a{" "}
-            <span className="font-semibold text-blue-700">Rocken Sistemas</span>{" "}
-            nasceu com o propósito de transformar a experiência digital de
-            empresas e pessoas. Nossa equipe é formada por profissionais
-            experientes e apaixonados por tecnologia, sempre em busca das
-            melhores práticas e tendências do mercado.
+          <h2 className="text-2xl font-semibold text-cyan-300 mb-4">Quem Somos</h2>
+          <p className="text-gray-300 mb-4">
+            Com mais de 20 anos de mercado, acumulamos uma sólida experiência com centenas de cases de sucesso, consultorias, palestras e cursos. Somos reconhecidos pela mídia e pelo setor como uma empresa de referência em inovação e qualidade tecnológica.
           </p>
-          <p className="text-gray-700 mb-4">
-            Atuamos no desenvolvimento de sistemas web, aplicativos, consultoria
-            em TI e automação de processos. Nosso diferencial está na
-            proximidade com o cliente, no atendimento personalizado e na busca
-            constante por inovação e excelência.
+          <p className="text-gray-300 mb-4">
+            Atuamos com soluções que vão além da segurança, trazendo organização e conveniência para condomínios e empresas. Nosso portfólio inclui automação de portas e portões, biometria facial, leitura de veias e outras tecnologias avançadas, sempre personalizadas conforme a necessidade do cliente.
+          </p>
+          <p className="text-gray-300 mb-4">
+            Além disso, nosso atendimento é ágil e eficiente, acompanhando desde a consultoria inicial até a manutenção contínua dos sistemas, garantindo alta performance e satisfação.
           </p>
         </div>
 
         {/* Diferenciais */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Por que escolher a Rocken?
-          </h2>
+          <h2 className="text-2xl font-semibold text-cyan-300 mb-4">Por que escolher a Rocken?</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex items-start gap-3">
-              <span className="text-2xl">🤝</span>
+              <span className="text-2xl">🔬</span>
               <div>
-                <h3 className="font-bold text-gray-700">
-                  Atendimento personalizado
-                </h3>
-                <p className="text-gray-600">
-                  Entendemos as necessidades de cada cliente e entregamos
-                  soluções sob medida.
+                <h3 className="font-bold text-gray-100">Tecnologia de ponta</h3>
+                <p className="text-gray-300">
+                  Utilizamos alta tecnologia para controlar o acesso, garantindo segurança e eficiência.
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-2xl">🔒</span>
+              <span className="text-2xl">🏆</span>
               <div>
-                <h3 className="font-bold text-gray-700">
-                  Segurança e confiabilidade
-                </h3>
-                <p className="text-gray-600">
-                  Priorizamos a proteção dos dados e a estabilidade dos sistemas
-                  desenvolvidos.
+                <h3 className="font-bold text-gray-100">Experiência e reconhecimento</h3>
+                <p className="text-gray-300">
+                  Com décadas de experiência, somos referência no setor e na mídia pela qualidade de nossos serviços.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">⚙️</span>
+              <div>
+                <h3 className="font-bold text-gray-100">Soluções personalizadas</h3>
+                <p className="text-gray-300">
+                  Serviços adaptados às necessidades específicas de cada cliente, do básico ao avançado.
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-2xl">⚡</span>
               <div>
-                <h3 className="font-bold text-gray-700">Agilidade</h3>
-                <p className="text-gray-600">
-                  Processos ágeis para entregar resultados rápidos e eficientes.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-2xl">🌎</span>
-              <div>
-                <h3 className="font-bold text-gray-700">Sustentabilidade</h3>
-                <p className="text-gray-600">
-                  Compromisso com práticas responsáveis e impacto positivo na
-                  sociedade.
+                <h3 className="font-bold text-gray-100">Atendimento e suporte</h3>
+                <p className="text-gray-300">
+                  Suporte rápido e eficiente desde a consultoria até a manutenção, para máxima tranquilidade.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Chamada para contato */}
+        {/* Contato final */}
         <div className="mt-12 text-center">
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+          <h2 className="text-xl font-semibold text-cyan-400 mb-2">
             Vamos conversar?
           </h2>
-          <p className="text-gray-700 mb-4">
+          <p className="text-gray-200 mb-4">
             Quer saber mais sobre nossos serviços ou iniciar um projeto? <br />
             <a
               href="/contato"
-              className="text-blue-700 underline hover:text-blue-900 font-bold"
+              className="text-cyan-400 underline hover:text-cyan-200 font-bold"
             >
               Entre em contato
             </a>{" "}
-            e descubra como podemos ajudar sua empresa a crescer com tecnologia!
+            e descubra como podemos ajudar seu condomínio a crescer com tecnologia!
           </p>
         </div>
       </section>
-    </Container>
+    </div>
   );
 }
