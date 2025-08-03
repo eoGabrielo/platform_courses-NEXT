@@ -50,7 +50,7 @@ export default function Header() {
         <nav
           className={`
             ${menuOpen ? "flex" : "hidden"}
-            absolute top-16 left-0 w-full bg-gray-800 bg-opacity-95 z-20 flex-col items-center gap-4 py-4
+            absolute top-29 left-0 w-full bg-gray-800 bg-opacity-95 z-20 flex-col items-center gap-4 py-4
             sm:static sm:flex sm:flex-row sm:items-center sm:gap-8 sm:bg-transparent sm:py-0 sm:w-auto
             transition-all
           `}
