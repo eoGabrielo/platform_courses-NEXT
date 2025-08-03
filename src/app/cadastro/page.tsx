@@ -19,6 +19,8 @@ export default function Cadastro() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [tipo, setTipo] = useState('');
+    const [cadastroOk, setCadastroOk] = useState(false)
+    const [message, setMessage] = useState(false)
 
     const router = useRouter();
 
@@ -28,7 +30,10 @@ export default function Cadastro() {
         e.preventDefault();
 
         if (!user || !email || !senha || !tipo || tipo === "") {
-            console.log('Todos os dados precisa ser preenchidos')
+            setMessage(true);
+            setTimeout(() => {
+                setMessage(false);
+            }, 5000);
             return;
         }
 
@@ -57,9 +62,13 @@ export default function Cadastro() {
             setEmail('');
             setSenha('');
             setTipo('');
+            setCadastroOk(true)
 
-            router.push('/entrar')
-            
+            setTimeout(() => {
+                router.push('/entrar')
+            }, 3000)
+
+
         } catch (err) {
             console.error("ERRO: " + err)
             console.log('Erro ao cadastrar usuário. Tente novamente.');
@@ -74,7 +83,7 @@ export default function Cadastro() {
                 Preencha os campos abaixo para cadastrar um novo usuário
             </h1>
 
-            <form className="flex flex-col gap-4">
+            <form className="flex flex-col gap-2">
                 {/* Usuário */}
                 <div>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -137,13 +146,19 @@ export default function Cadastro() {
                         <option value="condominio">Condomínio</option>
                         <option value="admin">Admin</option>
                     </select>
+                    {cadastroOk && (<div className='text-center py-3 text-green-400'>
+                        <p>Cadastro realizado com sucesso!</p>
+                        <p>Redirencionando para pagina de login...</p>
+                    </div>)}
                 </div>
+
+                {message && (<p className='text-center text-red-500'>Preencha todos os campos!</p>)}
 
                 {/* Botão */}
                 <button
                     onClick={handleSubmit}
                     type="submit"
-                    className="mt-2 w-full py-2 px-4 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition duration-200"
+                    className="w-full py-2 px-4 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition duration-200"
                 >
                     Cadastrar
                 </button>

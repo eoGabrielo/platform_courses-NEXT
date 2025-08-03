@@ -9,6 +9,9 @@ import { useRouter } from 'next/navigation';
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [loginOk, setLoginOk] = useState(false)
+    const [loginBad, setLoginBad] = useState(false)
+    const [message, setMessage] = useState(false)
 
     const { login } = useAuth();
     const router = useRouter();
@@ -18,7 +21,10 @@ export default function Login() {
         e.preventDefault();
 
         if (!email || !senha) {
-            console.log('Preencha todos os campos');
+            setMessage(true);
+            setTimeout(() => {
+                setMessage(false);
+            }, 4000);
             return;
         }
 
@@ -51,16 +57,17 @@ export default function Login() {
             });
 
             // Se chegou aqui, login ok
-            console.log("Login realizado com sucesso!");
-            // Aqui pode redirecionar ou atualizar estado de autenticação
-            router.push('/cursos');
-            setEmail('');
-            setSenha('');
+            setLoginBad(false)
+            setLoginOk(true)
 
+            setTimeout(() => {
+                router.push('/cursos');;
+            }, 1000);
 
         } catch (error) {
+            setLoginOk(false)
+            setLoginBad(true)
             console.error("Erro no login:", error);
-            console.log("Erro ao tentar logar. Tente novamente.");
         }
     }
 
@@ -103,11 +110,25 @@ export default function Login() {
                     />
                 </div>
 
+                {loginOk && (
+                    <div className='text-center text-green-500'>
+                        <p>Login realizado com sucesso!</p>
+                    </div>)
+                }
+                {loginBad && (
+                    <div className='text-center text-red-500'>
+                        <p>Erro servidor...</p>
+                    </div>)
+                }
+
+                {message && (<p className='text-center text-red-500'>Preencha todos os campos!</p>)}
+
+
                 {/* Botão */}
                 <button
                     onClick={handleLogin}
                     type="submit"
-                    className="mt-2 w-full py-2 px-4 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition duration-200"
+                    className="w-full py-2 px-4 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition duration-200"
                 >
                     Entrar
                 </button>

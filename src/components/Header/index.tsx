@@ -55,13 +55,13 @@ export default function Header() {
           transition-all
         `}
         >
-          <Link
+          {!currentUser && (<Link
             className="py-1 px-2 hover:text-[#ccc] transition-colors duration-300 font-medium"
             href="/cadastro"
             onClick={() => setMenuOpen(false)}
           >
             Cadastro
-          </Link>
+          </Link>) }
           <Link
             className="py-1 px-2 hover:text-[#ccc] transition-colors duration-300 font-medium"
             href="/sobre"
