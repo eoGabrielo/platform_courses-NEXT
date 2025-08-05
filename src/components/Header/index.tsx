@@ -1,4 +1,4 @@
-"use client";
+"use client"; 
 import Image from "next/image";
 import LogoRocken from "../../../public/LogoRocken.png";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default function Header() {
         {/* Foto/Avatar */}
         <div className="hidden sm:flex ml-6 items-center">
           {currentUser && (
-            <p className="text-white font-semibold">
+            <p className={currentUser.tipo === "admin" ? "text-yellow-400 font-semibold" : "text-white font-semibold"}>
               Olá, {currentUser.user}!
             </p>
           )}
