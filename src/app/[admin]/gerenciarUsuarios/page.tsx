@@ -22,6 +22,7 @@ export default function GerenciarUsuarios() {
     const [editingId, setEditingId] = useState<string | null>(null);
     const [formData, setFormData] = useState<Partial<UsuarioProps>>({});
     const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
+    const [searchTerm, setSearchTerm] = useState<string>(""); // Estado da busca
     const { currentUser } = useAuth();
     const router = useRouter();
 
@@ -73,6 +74,11 @@ export default function GerenciarUsuarios() {
         setFormData(prev => ({ ...prev, [name]: value }));
     }
 
+    // Atualiza valor do campo de busca
+    function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setSearchTerm(e.target.value);
+    }
+
     // Salva edição no Firestore
     async function saveEdit() {
         if (!editingId) return;
@@ -84,7 +90,6 @@ export default function GerenciarUsuarios() {
                 tipo: formData.tipo,
                 user: formData.user,
             });
-            // Atualiza localmente para não precisar buscar tudo de novo
             setUsuarios(prev => prev.map(u => u.id === editingId ? { ...(u), ...formData } as UsuarioProps : u));
             cancelEdit();
         } catch (err) {
@@ -126,20 +131,34 @@ export default function GerenciarUsuarios() {
         };
     }
 
+    // Filtra os usuários conforme o searchTerm (case-insensitive)
+    const usuariosFiltrados = usuarios.filter(usuario =>
+        usuario.user.toLowerCase().startsWith(searchTerm.toLowerCase())
+    );
+
     return (
         <div className="min-h-screen p-6 bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 text-gray-100">
             <Container>
                 <h1 className="text-3xl font-extrabold mb-8 text-cyan-400">Gerenciar Usuários</h1>
 
+                {/* Input da busca */}
+                <input
+                    type="text"
+                    placeholder="Buscar usuário pelo nome..."
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    className="mb-6 w-full max-w-md rounded border border-gray-600 bg-gray-800 px-4 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                />
+
                 {loading && <p className="text-center text-gray-400">Carregando usuários...</p>}
                 {error && <p className="text-center text-red-500">{error}</p>}
 
-                {!loading && !error && usuarios.length === 0 && (
+                {!loading && !error && usuariosFiltrados.length === 0 && (
                     <p className="text-center text-gray-400">Nenhum usuário encontrado.</p>
                 )}
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {usuarios.map(usuario => {
+                    {usuariosFiltrados.map(usuario => {
                         const colors = getTextColorClasses(usuario);
                         return (
                             <div
