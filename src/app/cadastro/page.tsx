@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { db } from "@/api/firebase";
 import { useRouter } from 'next/navigation';
+import { useAuth } from "@/context/AuthContext";
 
 import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 
@@ -20,7 +21,13 @@ export default function Cadastro() {
     const [cadastroOk, setCadastroOk] = useState(false);
     const [message, setMessage] = useState(false);
 
+    const { currentUser } = useAuth();
     const router = useRouter();
+
+    if(currentUser?.tipo !== 'admin'){
+        router.push('/')
+    }
+
 
     async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
