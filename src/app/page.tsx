@@ -1,34 +1,53 @@
+'use client';
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 import Card from '@/components/Card';
 import Container from '@/components/Container';
 import engrenagemImg from '../../public/engrenagem.png';
 import curso from '../../public/curso.jpg';
+import { useState } from "react";
 
 export default function Home() {
+  const { currentUser } = useAuth(); // Pega o usuário atual
+  const router = useRouter();
+
+  const handleAccessCourses = () => {
+    if (currentUser) {
+      router.push("/cursos"); // Redireciona se logado
+    } else {
+      router.push("/entrar")
+    }
+  };
+
   return (
     <div className="bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 min-h-screen text-gray-100">
 
+      {/* Hero Section com botão para cursos */}
       <main className="relative h-screen w-full">
-        {/* Imagem de fundo (se quiser, pode ativar depois) 
-        <Image
-          src={bgImage}
-          alt="Imagem de fundo"
-          fill
-          priority
-          className="object-cover brightness-50"
-        /> */}
-        
-        {/* Conteúdo por cima da imagem */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h1 className="text-5xl font-extrabold mb-4 text-cyan-400">
             Bem-vindo ao Nosso Site
           </h1>
-          <p className="text-lg max-w-xl text-gray-300">
+
+          <p className="text-lg max-w-xl text-gray-300 mb-6">
             Aqui você encontra informações sobre nossos serviços, cursos, novidades e muito mais. Explore o site e descubra tudo que temos a oferecer.
           </p>
+
+          {/* Botão de acesso com verificação de login */}
+          <Link href='/entrar?login=required'>
+            <button
+              onClick={handleAccessCourses}
+              className="bg-cyan-600 hover:bg-cyan-500 text-white font-semibold cursor-pointer py-3 px-6 rounded-full transition"
+            >
+              Acessar Cursos
+            </button>
+          </Link>
         </div>
       </main>
 
-      {/* Algumas infos */}
+      {/* Cards com conteúdos */}
       <section className="py-12">
         <Container>
           <h2 className="text-4xl font-extrabold mb-8 text-cyan-400 text-center">
