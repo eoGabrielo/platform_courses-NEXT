@@ -55,14 +55,22 @@ export default function Header() {
             transition-all
           `}
         >
-          {currentUser?.tipo === "admin" &&(
-            <Link
-              href="/cadastro"
-              className="py-1 px-2 hover:text-cyan-400 transition-colors duration-300 font-medium"
-              onClick={() => setMenuOpen(false)}
-            >
-              Cadastrar
-            </Link>
+          {currentUser?.tipo === "admin" && (
+            <>
+              <Link href="/admin/gerenciarUsuarios"
+                className="py-1 px-2 hover:text-cyan-400 transition-colors duration-300 font-medium"
+                onClick={() => setMenuOpen(false)}>
+                  <p>Gerenciar</p>
+              </Link>
+
+              <Link
+                href="/admin/cadastro"
+                className="py-1 px-2 hover:text-cyan-400 transition-colors duration-300 font-medium"
+                onClick={() => setMenuOpen(false)}
+              >
+                Cadastrar
+              </Link>
+            </>
           )}
 
           <Link
