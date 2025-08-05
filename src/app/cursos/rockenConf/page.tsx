@@ -2,21 +2,23 @@
 import CardCurso from "@/components/CardCurso"
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from 'next/navigation';
+import {useEffect} from "react"
 
 export default function RockenConfig() {
   const { currentUser, logout } = useAuth();
   const router = useRouter();
 
-  // Redireciona se não for admin nem técnico
-  if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "tecnico") {
-    router.push('/');
-    return;
-  }
+  useEffect(() => {
+    if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "tecnico") {
+      router.push("/");
+    }
+  }, [currentUser]);
+
 
   return (
     <div className="bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 min-h-screen">
       <section className="py-12 px-4 max-w-5xl mx-auto text-gray-100">
-        
+
         {/* Título */}
         <div className="mb-10 text-center">
           <h1 className="text-4xl font-extrabold text-cyan-400 mb-3">

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { db } from "@/api/firebase";
 import { useRouter } from 'next/navigation';
 import { useAuth } from "@/context/AuthContext";
@@ -24,9 +24,11 @@ export default function Cadastro() {
     const { currentUser } = useAuth();
     const router = useRouter();
 
-    if(currentUser?.tipo !== 'admin'){
-        router.push('/')
-    }
+    useEffect(() => {
+        if (currentUser?.tipo !== 'admin') {
+            router.push('/');
+        }
+    }, [currentUser]);
 
 
     async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {

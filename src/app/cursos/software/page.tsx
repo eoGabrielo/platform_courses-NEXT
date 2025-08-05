@@ -3,15 +3,18 @@
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from 'next/navigation';
 import CardCurso from '@/components/CardCurso';
+import { useEffect } from "react";
 
 export default function Software() {
   const { currentUser, logout } = useAuth();
   const router = useRouter();
 
-  if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "condominio") {
-    router.push('/');
-    return;
-  }
+  useEffect(() => {
+    if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "condominio") {
+      router.push("/");
+    }
+  }, [currentUser]);
+
 
   return (
     <div className="bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 min-h-screen">
