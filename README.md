@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rocken Sistemas - Portal de Suporte e Cursos
 
-## Getting Started
+## Descrição
 
-First, run the development server:
+Este projeto foi desenvolvido para uma empresa que possui procedimentos internos que os funcionários precisam seguir, além de fornecer suporte com vídeos e tutoriais escritos sobre o uso do software da empresa.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Funcionários da empresa têm acesso restrito apenas aos conteúdos específicos da empresa.  
+- Clientes (usuários) têm acesso à página de cursos relacionados ao software.  
+- Apenas administradores têm permissão para cadastrar e gerenciar usuários no sistema.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades Principais
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Sistema de autenticação e autorização baseado em tipos de usuários (`admin`, `técnico` e `condomínio`).  
+- Cadastro e gerenciamento de usuários restrito a administradores.  
+- Página de cursos acessível somente para usuários autenticados.  
+- Interface responsiva e amigável com navegação dinâmica.  
+- Busca e filtro avançados para gerenciar usuários.  
+- Suporte a senha forte com validação no cadastro.  
+- Context API para gerenciamento global do estado de autenticação.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tecnologias Utilizadas
 
-## Learn More
+- [Next.js](https://nextjs.org/) (React Framework para SSR e SSG)  
+- [Firebase Firestore](https://firebase.google.com/docs/firestore) (Banco de dados NoSQL em tempo real)  
+- [Tailwind CSS](https://tailwindcss.com/) (Framework CSS utilitário para estilização rápida)  
+- React Context API (Gerenciamento de estado global)  
+- [Vercel](https://vercel.com/) (Hospedagem e deploy)
 
-To learn more about Next.js, take a look at the following resources:
+## Como rodar o projeto localmente
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone o repositório:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
