@@ -23,6 +23,7 @@ export default function GerenciarUsuarios() {
     const [formData, setFormData] = useState<Partial<UsuarioProps>>({});
     const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState<string>(""); // Estado da busca
+    const [tipoFiltro, setTipoFiltro] = useState<string>("todos");
     const { currentUser } = useAuth();
     const router = useRouter();
 
@@ -133,7 +134,8 @@ export default function GerenciarUsuarios() {
 
     // Filtra os usuários conforme o searchTerm (case-insensitive)
     const usuariosFiltrados = usuarios.filter(usuario =>
-        usuario.user.toLowerCase().startsWith(searchTerm.toLowerCase())
+        usuario.user.toLowerCase().startsWith(searchTerm.toLowerCase()) &&
+        (tipoFiltro === "todos" || usuario.tipo === tipoFiltro)
     );
 
     return (
@@ -149,6 +151,22 @@ export default function GerenciarUsuarios() {
                     onChange={handleSearchChange}
                     className="mb-6 w-full max-w-md rounded border border-gray-600 bg-gray-800 px-4 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 />
+
+                {/* Filtro por tipo de usuário */}
+                <div className="flex flex-wrap gap-3 mb-6 justify-center">
+                    {["todos", "admin", "tecnico", "condominio"].map(tipo => (
+                        <button
+                            key={tipo}
+                            onClick={() => setTipoFiltro(tipo)}
+                            className={`px-4 py-2 rounded transition font-semibold ${tipoFiltro === tipo
+                                ? "bg-cyan-600 text-white"
+                                : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                                }`}
+                        >
+                            {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
+                        </button>
+                    ))}
+                </div>
 
                 {loading && <p className="text-center text-gray-400">Carregando usuários...</p>}
                 {error && <p className="text-center text-red-500">{error}</p>}

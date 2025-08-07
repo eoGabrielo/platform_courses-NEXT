@@ -20,6 +20,9 @@ export default function Cadastro() {
     const [tipo, setTipo] = useState('');
     const [cadastroOk, setCadastroOk] = useState(false);
     const [message, setMessage] = useState(false);
+    const [senhaFraca, setSenhaFraca] = useState(false);
+    const [senhaVisivel, setSenhaVisivel] = useState(false);
+
 
     const { currentUser } = useAuth();
     const router = useRouter();
@@ -29,6 +32,22 @@ export default function Cadastro() {
             router.push('/');
         }
     }, [currentUser]);
+
+    //função de validação de senha forte
+    function senhaForte(senha: string): boolean {
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return regex.test(senha);
+    }
+
+
+    // Função para deixar todas as primeiras letras maiúsculas
+    function capitalizarNome(nome: string): string {
+        return nome
+            .toLowerCase() // coloca tudo minúsculo
+            .split(' ') // separa por espaço
+            .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1)) // capitaliza a primeira letra
+            .join(' '); // junta novamente
+    }
 
 
     async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
@@ -40,7 +59,19 @@ export default function Cadastro() {
             return;
         }
 
-        const dataUser: UserData = { user, email, senha, tipo };
+        if (!senhaForte(senha)) {
+            setSenhaFraca(true); // Ativa mensagem de senha fraca
+            setTimeout(() => setSenhaFraca(false), 5000);
+            return;
+        }
+
+
+        const dataUser: UserData = {
+            user: capitalizarNome(user),
+            email,
+            senha,
+            tipo
+        };
 
         // Verifica se o email já está cadastrado
         const usuariosRef = collection(db, "usuarios");
@@ -48,7 +79,7 @@ export default function Cadastro() {
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
             setMessage(true);
-            setTimeout(() => setMessage(false), 5000);
+            setTimeout(() => setMessage(false), 8000);
             console.log("Esse email já está cadastrado!");
             return;
         }
@@ -61,9 +92,6 @@ export default function Cadastro() {
             setTipo('');
             setCadastroOk(true);
 
-            setTimeout(() => {
-                router.push('/entrar');
-            }, 3000);
         } catch (err) {
             console.error("ERRO: " + err);
             setMessage(true);
@@ -114,14 +142,26 @@ export default function Cadastro() {
                         <label className="block mb-1 font-semibold text-gray-300" htmlFor="senha">
                             Senha
                         </label>
-                        <input
-                            id="senha"
-                            value={senha}
-                            onChange={(e) => setSenha(e.target.value)}
-                            type="password"
-                            required
-                            className="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                        />
+
+                        <div className="relative">
+                            <input
+                                id="senha"
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
+                                type={senhaVisivel ? "text" : "password"} // alterna visibilidade
+                                required
+                                className="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 pr-10"
+                            />
+
+                            {/* Ícone de olho */}
+                            <button
+                                type="button"
+                                onClick={() => setSenhaVisivel(!senhaVisivel)}
+                                className="pr-2 cursor-pointer absolute right-2 top-2 text-gray-400 hover:text-white"
+                            >
+                                {senhaVisivel ? 'Esconder' : 'Ver'}
+                            </button>
+                        </div>
                     </div>
 
                     {/* Tipo */}
@@ -147,7 +187,7 @@ export default function Cadastro() {
                     {cadastroOk && (
                         <div className="text-center py-3 text-green-400 font-semibold">
                             <p>Cadastro realizado com sucesso!</p>
-                            <p>Redirecionando para a página de login...</p>
+                            <p>Usuario Já tem acesso aos cursos da sua categoria.</p>
                         </div>
                     )}
 
@@ -155,6 +195,13 @@ export default function Cadastro() {
                     {message && (
                         <p className="text-center text-red-500 font-semibold">
                             Preencha todos os campos corretamente ou email já cadastrado.
+                        </p>
+                    )}
+
+                    {/*Logica se a senha for fraca.*/}
+                    {senhaFraca && (
+                        <p className="text-center text-yellow-500 font-semibold">
+                            A senha deve ter ao menos 8 caracteres, incluindo letra maiúscula, minúscula, número e símbolo.
                         </p>
                     )}
 
