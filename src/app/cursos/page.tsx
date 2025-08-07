@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from 'next/navigation';
@@ -8,9 +9,20 @@ export default function Cursos() {
   const { currentUser } = useAuth();
   const router = useRouter();
 
+  useEffect(() => {
+    // Executa apenas no cliente
+    if (typeof window !== 'undefined') {
+      console.log(location.href);
+    }
+
+    // Redireciona se não estiver autenticado
+    if (!currentUser) {
+      router.push('/');
+    }
+  }, [currentUser, router]);
+
   if (!currentUser) {
-    router.push('/');
-    return null;
+    return null; // Evita renderizar até redirecionar
   }
 
   return (
@@ -20,50 +32,33 @@ export default function Cursos() {
       </h1>
       <div className="flex flex-col gap-6 mb-7 p-4 max-w-4xl h-lvh">
 
-
-
         {(currentUser?.tipo === "tecnico" || currentUser?.tipo === "admin") && (
-
           <Link
-          href="/cursos/rockenConf"
-          className="relative block rounded-2xl bg-gradient-to-r from-green-600 to-green-400 p-8 shadow-lg hover:scale-105 transition-transform min-h-[180px]"
-        >
-          <h2 className="text-2xl font-bold text-white mb-2">
-            Configurações para Técnicos.
-          </h2>
-          <p className="text-white opacity-90">
-            Guia completo para técnicos: configurações, manutenção e dicas para garantir o melhor desempenho no serviço.
-          </p>
-        </Link>
-
+            href="/cursos/rockenConf"
+            className="relative block rounded-2xl bg-gradient-to-r from-green-600 to-green-400 p-8 shadow-lg hover:scale-105 transition-transform min-h-[180px]"
+          >
+            <h2 className="text-2xl font-bold text-white mb-2">
+              Configurações para Técnicos.
+            </h2>
+            <p className="text-white opacity-90">
+              Guia completo para técnicos: configurações, manutenção e dicas para garantir o melhor desempenho no serviço.
+            </p>
+          </Link>
         )}
 
         {(currentUser?.tipo === "condominio" || currentUser?.tipo === "admin") && (
-
           <Link
-          href="/cursos/software"
-          className="relative block rounded-2xl bg-gradient-to-r from-cyan-600 to-cyan-400 p-8 shadow-lg hover:scale-105 transition-transform min-h-[180px]"
-        >
-          <h2 className="text-2xl font-bold text-white mb-2">
-            Aulas do Software.
-          </h2>
-          <p className="text-white opacity-90">
-            Aprenda a utilizar todas as funcionalidades do nosso sistema, desde o básico até recursos avançados para otimizar sua rotina.
-          </p>
-        </Link>
-
+            href="/cursos/software"
+            className="relative block rounded-2xl bg-gradient-to-r from-cyan-600 to-cyan-400 p-8 shadow-lg hover:scale-105 transition-transform min-h-[180px]"
+          >
+            <h2 className="text-2xl font-bold text-white mb-2">
+              Aulas do Software.
+            </h2>
+            <p className="text-white opacity-90">
+              Aprenda a utilizar todas as funcionalidades do nosso sistema, desde o básico até recursos avançados para otimizar sua rotina.
+            </p>
+          </Link>
         )}
-
-
-
-
-        
-
-
-
-
-
-
 
       </div>
     </div>
