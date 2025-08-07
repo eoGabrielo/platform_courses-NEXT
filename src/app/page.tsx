@@ -5,9 +5,8 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import Card from '@/components/Card';
 import Container from '@/components/Container';
-import engrenagemImg from '../../public/engrenagem.png';
-import curso from '../../public/curso.jpg';
-import { useState } from "react";
+
+
 
 export default function Home() {
   const { currentUser } = useAuth(); // Pega o usuário atual
@@ -55,13 +54,11 @@ export default function Home() {
           </h2>
           <div className="flex flex-wrap justify-center gap-8">
             <Card
-              imgHref={engrenagemImg}
               link="/"
               titulo="Configurações"
               descricao="Dicas, orientações claras e tutoriais passo a passo que facilitam o uso do software e configuração dos equipamentos, garantindo que o sistema seja utilizado de forma simples, eficiente e sem complicações."
             />
             <Card
-              imgHref={curso}
               link="/"
               titulo="Software"
               descricao="Este site foi criado para ajudar os usuários e técnicos da empresa a tirarem o máximo proveito do sistema."

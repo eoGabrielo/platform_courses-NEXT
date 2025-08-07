@@ -1,31 +1,16 @@
-import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface CardProps {
   titulo: string;
   descricao: string;
   link: string;
-  imgHref: StaticImageData;
 }
 
-export default function Card({ titulo, descricao, link, imgHref }: CardProps) {
+export default function Card({ titulo, descricao, link }: CardProps) {
   return (
     <div className="w-full sm:w-80 bg-white dark:bg-gray-800 rounded-2xl shadow-md ring-1 ring-gray-400/40 overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg duration-300 flex flex-col">
       
-      {/* Imagem 
-      
-      <div className="relative w-full h-44">
-        <Link href={link}>
-          <Image
-            src={imgHref}
-            alt={titulo}
-            fill
-            className="object-cover"
-          />
-        </Link>
-      </div>
-      
-      */}
+    
       
 
       {/* Conteúdo */}
