@@ -3,6 +3,7 @@ import CardCurso from "@/components/CardCurso"
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from 'next/navigation';
 import {useEffect} from "react"
+import Link from "next/link";
 
 export default function RockenConfig() {
   const { currentUser, logout } = useAuth();
@@ -31,9 +32,8 @@ export default function RockenConfig() {
 
         {/* Cards de cursos */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <CardCurso assunto="Configuração do Facial Hikvision" />
-          <CardCurso assunto="Configuração Impressora Control ID" />
-          <CardCurso assunto="Parâmetros da Inversora" />
+          <CardCurso link='/cursos/rockenConf/ConfigFacialHikivisionSoftware' assunto="Configuração do Facial Hikvision" />
+          
         </div>
 
       </section>
