@@ -32,12 +32,8 @@ export default function Software() {
 
         {/* Cards no mesmo estilo da outra página */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <CardCurso assunto="Cadastro de Unidade" />
-          <CardCurso assunto="Cadastro de Morador" />
-          <CardCurso assunto="Ativando Aplicativo" />
-          <CardCurso assunto="Ativando e Removendo Facial" />
-          <CardCurso assunto="Cadastro de Veículo" />
-          <CardCurso assunto="Ativando Tag do Veículo" />
+          <CardCurso link="/cursos/software/cadastroMorador" assunto="Cadastro de Morador" />
+
         </div>
 
       </section>
