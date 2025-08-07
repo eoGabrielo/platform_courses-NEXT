@@ -3,9 +3,10 @@ import CardCurso from "@/components/CardCurso"
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from 'next/navigation';
 import {useEffect} from "react"
-import Link from "next/link";
+
 
 export default function RockenConfig() {
+  
   const { currentUser, logout } = useAuth();
   const router = useRouter();
 

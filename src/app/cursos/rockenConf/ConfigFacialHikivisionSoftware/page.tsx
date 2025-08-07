@@ -1,6 +1,18 @@
-import React from "react";
+import { useEffect } from "react";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from 'next/navigation';
 
 export default function ConfigFacialHikivisionSoftware() {
+
+  const { currentUser, logout } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "tecnico") {
+      router.push("/");
+    }
+  }, [currentUser]);
+
   const passos = [
     "Clique na opção **Cadastro de Dispositivos de Acesso**.",
     "Selecione **Hikvision**.",
