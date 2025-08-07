@@ -1,6 +1,8 @@
+import React from "react";
+
 export default function ConfigFacialHikivisionSoftware() {
   const passos = [
-    "Clique na opção **Cadastro de DispositivoS de Acesso**.",
+    "Clique na opção **Cadastro de Dispositivos de Acesso**.",
     "Selecione **Hikvision**.",
     "Clique em **Biometria e Facial**.",
     "No campo **Tipo**, escolha a **segunda opção - DS-K1T671 / DS-K1T331 / DS-K1T341**.",
@@ -19,11 +21,24 @@ export default function ConfigFacialHikivisionSoftware() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-6 py-10">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-center text-cyan-400">
-          Configuração do Facial - Hikvision no Rocken Live.
+      <div className="max-w-4xl mx-auto space-y-10">
+        {/* Título */}
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-cyan-400">
+          Configuração do Facial - Hikvision no Rocken Live
         </h1>
 
+        <div className="rounded-xl overflow-hidden shadow-lg" style={{ height: '480px' }}>
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/RBNQ7kp2hTs"
+            title="Tutorial Hikvision"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
+
+
+        {/* Lista de passos */}
         <ol className="space-y-6">
           {passos.map((passo, index) => (
             <li
@@ -33,11 +48,19 @@ export default function ConfigFacialHikivisionSoftware() {
               <div className="flex-shrink-0 w-10 h-10 bg-cyan-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
                 {index + 1}
               </div>
-              <p className="text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: passo.replace(/\*\*(.*?)\*\*/g, "<strong class='text-cyan-400'>$1</strong>") }} />
+              <p
+                className="text-lg leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: passo.replace(
+                    /\*\*(.*?)\*\*/g,
+                    "<strong class='text-cyan-400'>$1</strong>"
+                  ),
+                }}
+              />
             </li>
           ))}
         </ol>
-        </div>
       </div>
+    </div>
   );
 }
