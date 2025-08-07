@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 export default function ConfigFacialHikivisionSoftware() {
 
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
   const router = useRouter();
 
   useEffect(() => {

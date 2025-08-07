@@ -7,7 +7,7 @@ import {useEffect} from "react"
 
 export default function RockenConfig() {
   
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
   const router = useRouter();
 
   useEffect(() => {

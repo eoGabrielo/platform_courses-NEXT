@@ -6,7 +6,7 @@ import CardCurso from '@/components/CardCurso';
 import { useEffect } from "react";
 
 export default function Software() {
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
