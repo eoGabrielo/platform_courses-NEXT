@@ -31,7 +31,7 @@ export default function Cadastro() {
         if (currentUser?.tipo !== 'admin') {
             router.push('/');
         }
-    }, [currentUser]);
+    }, [currentUser, router]);
 
     //função de validação de senha forte
     function senhaForte(senha: string): boolean {

@@ -14,7 +14,7 @@ export default function RockenConfig() {
     if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "tecnico") {
       router.push("/");
     }
-  }, [currentUser]);
+  }, [currentUser, router]);
 
 
   return (

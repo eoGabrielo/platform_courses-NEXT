@@ -14,7 +14,7 @@ export default function ConfigFacialHikivisionSoftware() {
         if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "tecnico") {
             router.push("/");
         }
-    }, [currentUser]);
+    }, [currentUser, router]);
 
     const passos = [
         "Clique na opção **Cadastro de Dispositivos de Acesso**.",

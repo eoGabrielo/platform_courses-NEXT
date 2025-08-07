@@ -13,7 +13,7 @@ export default function Software() {
     if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "condominio") {
       router.push("/");
     }
-  }, [currentUser]);
+  }, [currentUser, router]);
 
 
   return (
