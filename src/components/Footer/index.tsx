@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* Logo e nome */}
         <div className="flex items-center gap-3">
-          <span className="text-2xl font-bold tracking-wide text-white">Rocken Sistemas</span>
+          <span className="text-2xl font-bold tracking-wide text-white">Platform Courses</span>
         </div>
 
         {/* Links rápidos */}
@@ -34,12 +34,12 @@ export default function Footer() {
 
       {/* Informações de contato */}
       <div className="mt-8 text-center text-sm text-gray-300 space-y-1 max-w-5xl mx-auto px-4">
-        <p><strong>Atendimento:</strong> 0800 200 3873</p>
-        <p><strong>Telefones:</strong> (11) 3473-0571 / (11) 3473-3873</p>
+        <p><strong>Atendimento:</strong> 0800 200 1212</p>
+        <p><strong>Telefones:</strong> (11) 3473-1212 / (11) 3473-1212</p>
       </div>
 
       <div className="mt-6 text-center text-xs text-gray-400 max-w-5xl mx-auto px-4">
-        &copy; {new Date().getFullYear()} Rocken Sistemas. Todos os direitos reservados. Desenvolvido por Rocken Sistemas.
+        &copy; {new Date().getFullYear()} Platform Courses. Todos os direitos reservados. Desenvolvido por Platform Courses.
       </div>
     </footer>
   );

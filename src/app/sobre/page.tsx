@@ -7,10 +7,10 @@ export default function Sobre() {
         {/* Título e descrição */}
         <div className="mb-10 text-center">
           <h1 className="text-4xl font-extrabold text-cyan-400 mb-3">
-            Sobre a Rocken Sistemas
+            Sobre Platform Courses
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Na Rocken Sistemas, a inovação é a essência de tudo o que fazemos. Há mais de 20 anos, estamos na vanguarda da tecnologia aplicada ao controle de acesso de pessoas, veículos e mercadorias, oferecendo soluções modernas e eficazes que promovem organização, conveniência e segurança para condomínios e empresas.
+            Na Platform Courses, a inovação é a essência de tudo o que fazemos. Há mais de 20 anos, estamos na vanguarda da tecnologia aplicada ao controle de acesso de pessoas, veículos e mercadorias, oferecendo soluções modernas e eficazes que promovem organização, conveniência e segurança para condomínios e empresas.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export default function Sobre() {
 
         {/* Diferenciais */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-cyan-300 mb-4">Por que escolher a Rocken?</h2>
+          <h2 className="text-2xl font-semibold text-cyan-300 mb-4">Por que escolher a Platform Courses?</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex items-start gap-3">
               <span className="text-2xl">🔬</span>

@@ -47,9 +47,10 @@ export default function ConfigFacialHikivisionSoftware() {
                 <div className="rounded-xl overflow-hidden shadow-lg" style={{ height: '600px' }}>
                     <iframe
                         className="w-full h-full"
-                        src="https://www.youtube.com/embed/RBNQ7kp2hTs"
+                        src="https://www.youtube.com/embed/HLc6o1o6qss" // formato embed
                         title="Tutorial Hikvision"
                         frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
                 </div>
