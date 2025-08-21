@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA8e1arZp-0eQOO9-HFo6rNiNCfLhNxXMI",
-  authDomain: "rockensistemas-3dc16.firebaseapp.com",
-  projectId: "rockensistemas-3dc16",
-  storageBucket: "rockensistemas-3dc16.appspot.com",
-  messagingSenderId: "266728588931",
-  appId: "1:266728588931:web:344ef653c240bfc7cf3db6"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY, //variáveis de ambiente
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 // Inicializa o app Firebase
