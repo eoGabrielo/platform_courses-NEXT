@@ -11,7 +11,7 @@ export default function ConfigFacialHikivisionSoftware() {
     const router = useRouter();
 
     useEffect(() => {
-        if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "tecnico") {
+        if (currentUser?.tipo !== "admin" && currentUser?.tipo !== "condominio") {
             router.push("/");
         }
     }, [currentUser, router]);
