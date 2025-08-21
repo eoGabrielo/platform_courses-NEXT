@@ -7,13 +7,13 @@ import { AuthProvider } from "../context/AuthContext";
 
 
 export const metadata = {
-  title: 'Minha Página | Rocken Sistemas',
+  title: 'Minha Página | Plataforma',
   description: 'Aprenda como cadastrar moradores, veículos e configurar facial.',
   openGraph: {
-    title: 'Minha Página | Rocken Sistemas',
+    title: 'Minha Página | Plataforma',
     description: 'Aprenda como cadastrar moradores, veículos e configurar facial.',
     url: 'https://rocken-sistemas.vercel.app/', // substitua pelo seu domínio real
-    siteName: 'Rocken Sistemas',
+    siteName: 'Plataforma',
     images: [
       {
         url: '/previ.png',  // caminho relativo para a imagem na pasta /public
