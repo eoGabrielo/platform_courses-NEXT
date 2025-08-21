@@ -1,4 +1,4 @@
-# Rocken Sistemas - Portal de Suporte e Cursos
+# Platform Courses - Portal de Suporte e Cursos
 
 ## Descrição
 
